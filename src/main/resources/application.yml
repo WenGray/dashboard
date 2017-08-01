@@ -1,0 +1,22 @@
+#druid 的配置使用默认配置
+spring:
+  profiles: #开发期间使用 dev 开发配置
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+  freemarker:
+    check-template-location: true
+    template-loader-path: classpath:/web/
+    suffix: .ftl
+    request-context-attribute: request
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.gray.entity
+pagehelper:
+  helper-dialect: mysql
+server:
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
